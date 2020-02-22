@@ -1,0 +1,6 @@
+﻿  Cafe.cpp
+C:\Users\toejo\source\repos\Cafe\Cafe\Cafe.cpp(25,21): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\toejo\source\repos\Cafe\Cafe\Cafe.cpp(62,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\toejo\source\repos\Cafe\Cafe\Cafe.cpp(69,38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\toejo\source\repos\Cafe\Cafe\Cafe.cpp(76,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Cafe.vcxproj -> C:\Users\toejo\source\repos\Cafe\Debug\Cafe.exe
