@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+std::string input;
 
 class product
 {
@@ -15,9 +16,108 @@ public:
 	}
 };
 
+void MakeChange(float c)
+{
+	float dollars = 0;
+	float quarters = 0;
+	float dimes = 0;
+	float nickels = 0;
+	float pennies = 0;
+
+	if (c < 0)
+	{
+		c *= -1;
+	}
+
+	while (c >= 1)
+	{
+		dollars++;
+		c--;
+	}
+	while (c >= 0.25)
+	{
+		quarters++;
+		c -= 0.25;
+	}
+	while (c >= 0.1)
+	{
+		dimes++;
+		c -= 0.1;
+	}
+	while (c >= .05)
+	{
+		nickels++;
+		c -= 0.05;
+	}
+	while (c >= 0.01)
+	{
+		pennies++;
+		c -= 0.01;
+	}
+
+	std::cout << "Here is your change:\n";
+
+	if (dollars > 0)
+	{
+		std::cout << dollars;
+		std::cout << " dollars\n";
+	}
+	if (quarters > 0)
+	{
+		std::cout << quarters;
+		std::cout << " quarters\n";
+	}
+	if (dimes > 0)
+	{
+		std::cout << dimes;
+		std::cout << " dimes\n";
+	}
+	if (nickels > 0)
+	{
+		std::cout << nickels;
+		std::cout << " nickels\n";
+	}
+	if (pennies > 0)
+	{
+		std::cout << pennies;
+		std::cout << " pennies\n";
+	}
+}
+
+void Pay(float p)
+{
+	while (p > 0) 
+	{
+		std::cout << "\nPay the cost by typing the type of bill you will use: 1, 5, 10 or 20\n";
+		std::cin >> input;
+		if (input == "1")
+		{
+			p--;
+		}
+		if (input == "5")
+		{
+			p -= 5;
+		}
+		if (input == "10")
+		{
+			p -= 10;
+		}
+		if (input == "20")
+		{
+			p -= 20;
+		}
+
+		std::cout << p;
+	}	
+
+	MakeChange(p);
+}
+
+
+
 int main()
 {
-	std::string input;
+	
 	bool running = true;
 
 	product Coffee;
@@ -60,6 +160,7 @@ int main()
 			std::cout << "\nHow many?\n";
 			std::cin >> i;
 			std::cout << Coffee.returnPrice(i);
+			Pay(Coffee.returnPrice(i));
 		}
 		if (input == "sandwich")
 		{
@@ -67,6 +168,7 @@ int main()
 			std::cout << "\nHow many?\n";
 			std::cin >> i;
 			std::cout << Sandwich.returnPrice(i);
+			Pay(Sandwich.returnPrice(i));
 		}
 		if (input == "burger")
 		{
@@ -74,16 +176,14 @@ int main()
 			std::cout << "\nHow many?\n";
 			std::cin >> i;
 			std::cout << Burger.returnPrice(i);
+			Pay(Burger.returnPrice(i));
+
 		}		
 		if (input == "end")
 		{
 			running = false;
 		}
-		
 	}
-
-	
-
     std::cout << "aight thanks for coming bye.";
 }
 
